@@ -133,7 +133,7 @@ public class MainModule {
             try (PreparedStatement pstmt = conn.prepareStatement(query)) {
                 pstmt.setInt(1, applicantID);
                 pstmt.setInt(2, jobID);
-                pstmt.setString(3, coverLetter);  // Setting cover letter text
+                pstmt.setString(3, coverLetter);  
 
                 int count = pstmt.executeUpdate();
                 System.out.println(count + " job application(s) submitted.");
