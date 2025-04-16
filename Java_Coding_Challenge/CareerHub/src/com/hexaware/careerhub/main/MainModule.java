@@ -73,8 +73,7 @@ public class MainModule {
 
     private static void createApplicantProfile(Scanner sc) {
     	
-    	    // Updated query to insert firstName, lastName, email, and phone
-    	   // String query = "INSERT INTO Applicants (FirstName, LastName, email, phone) VALUES (?, ?, ?, ?)";
+    	   
     	    
     	    try (Connection conn = DbConnectionValidator.getConnection()) {
     	        System.out.print("Enter Applicant First Name: ");
@@ -89,18 +88,18 @@ public class MainModule {
     	        System.out.print("Enter Applicant Phone: ");
     	        String phone = sc.nextLine();
 
-    	        // Adding a default value for the Resume column ("No experience")
-    	        String defaultResume = "No experience"; // You can change this default value to whatever you prefer.
+    	        
+    	        String defaultResume = "No experience"; 
 
-    	        // Updated query to insert firstName, lastName, email, phone, and resume
+    	        
     	        String query = "INSERT INTO Applicants (FirstName, LastName, email, phone, Resume) VALUES (?, ?, ?, ?, ?)";
     	        
     	        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
     	            pstmt.setString(1, firstName);
-    	            pstmt.setString(2, lastName);  // Setting the last name
+    	            pstmt.setString(2, lastName);  
     	            pstmt.setString(3, email);
     	            pstmt.setString(4, phone);
-    	            pstmt.setString(5, defaultResume); // Setting the default value for the Resume column
+    	            pstmt.setString(5, defaultResume); 
 
     	            int count = pstmt.executeUpdate();
     	            System.out.println(count + " record(s) inserted into Applicants table.");
@@ -121,15 +120,15 @@ public class MainModule {
 
             System.out.print("Enter Job ID to Apply: ");
             int jobID = sc.nextInt();
-            sc.nextLine(); // Consume newline
+            sc.nextLine(); 
 
-            // Ask user for a Cover Letter (one-line text)
+            
             System.out.print("Enter Cover Letter (one line text): ");
-            String coverLetter = sc.nextLine();  // User input for cover letter
+            String coverLetter = sc.nextLine();  
 
             conn = DbConnectionValidator.getConnection();
 
-            // Updated query to include CoverLetter
+           
             String query = "INSERT INTO Applications (applicantID, jobID, coverLetter) VALUES (?, ?, ?)";
             try (PreparedStatement pstmt = conn.prepareStatement(query)) {
                 pstmt.setInt(1, applicantID);
@@ -191,7 +190,7 @@ public class MainModule {
             double maxSalary = sc.nextDouble();
             sc.nextLine();
 
-            // SQL query with JOIN between joblistings and companies to fetch company name
+            
             String query = "SELECT j.jobTitle, c.companyName, j.salary " +
                            "FROM joblistings j " +
                            "JOIN companies c ON j.companyID = c.companyID " +
