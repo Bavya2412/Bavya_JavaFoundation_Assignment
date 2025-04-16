@@ -14,10 +14,10 @@ public class JobListing {
     private String JobType;
     private LocalDateTime postedDate;
 
-    // List of applicants who applied for the job
+    
     private List<Applicant> applicants = new ArrayList<>();
 
-    // Constructor
+    
     public JobListing(int jobID, int companyID, String jobTitle, String jobDescription,
                       String jobLocation, double salary, String JobType, LocalDateTime postedDate) {
         this.jobID = jobID;
@@ -30,7 +30,7 @@ public class JobListing {
         this.postedDate = postedDate;
     }
 
-    // Getters
+    
     public int getJobID() {
         return jobID;
     }
@@ -63,12 +63,12 @@ public class JobListing {
         return postedDate;
     }
 
-    // Add a full applicant profile to this job listing
+  
     public void apply(Applicant applicant) {
         applicants.add(applicant);
     }
 
-    // Get all applicants for this job
+   
     public List<Applicant> getApplicants() {
         return applicants;
     }
